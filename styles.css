@@ -46,32 +46,44 @@ label {
 }
 
 input[type="number"], select {
-    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-select {
-    margin-top: 10px;
+/* Contenedor para Volumen Final */
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
+.volume-container input[type="number"] {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.volume-container select {
+    width: 80px; /* Ancho fijo para el select */
+}
+
+/* Contenedor para Ratio de Dilución */
 .ratio-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    gap: 15px; /* Más espacio para mejor estética */
-    width: 100%; /* Aprovecha el ancho disponible */
+    gap: 10px;
+    width: 100%;
 }
 
 .ratio-container input[type="number"] {
-    width: 100px; /* Ancho cómodo para los inputs */
+    flex: 1; /* Cada input ocupa el espacio disponible */
 }
 
 .ratio-container span {
     font-size: 18px;
     color: #333;
+    flex: 0 0 auto; /* Evita que el ":" se estire */
 }
 
 button {
@@ -123,13 +135,25 @@ button:hover {
         font-size: 24px;
     }
 
+    .volume-container {
+        flex-direction: row; /* Mantiene input y select en horizontal */
+        gap: 8px;
+    }
+
+    .volume-container input[type="number"] {
+        flex: 1;
+    }
+
+    .volume-container select {
+        width: 70px; /* Ligeramente más pequeño para móviles */
+    }
+
     .ratio-container {
-        flex-direction: row; /* Mantiene los inputs en horizontal */
-        justify-content: center; /* Centra en pantallas pequeñas */
-        gap: 10px; /* Reduce el espacio ligeramente */
+        flex-direction: row; /* Mantiene inputs en horizontal */
+        gap: 8px;
     }
 
     .ratio-container input[type="number"] {
-        width: 90px; /* Ajuste para pantallas pequeñas */
+        flex: 1;
     }
 }
