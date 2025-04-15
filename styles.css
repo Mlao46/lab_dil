@@ -53,24 +53,20 @@ input[type="number"], select {
     font-size: 16px;
 }
 
-input[type="number"] {
-    max-width: 200px;
-}
-
 select {
-    max-width: 100px;
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .ratio-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 15px; /* Más espacio para mejor estética */
+    width: 100%; /* Aprovecha el ancho disponible */
 }
 
 .ratio-container input[type="number"] {
-    width: 80px;
-    max-width: none;
+    width: 100px; /* Ancho cómodo para los inputs */
 }
 
 .ratio-container span {
@@ -127,15 +123,13 @@ button:hover {
         font-size: 24px;
     }
 
-    input[type="number"], select {
-        max-width: 100%;
-    }
-
     .ratio-container {
-        flex-direction: row;
+        flex-direction: row; /* Mantiene los inputs en horizontal */
+        justify-content: center; /* Centra en pantallas pequeñas */
+        gap: 10px; /* Reduce el espacio ligeramente */
     }
 
     .ratio-container input[type="number"] {
-        width: 70px;
+        width: 90px; /* Ajuste para pantallas pequeñas */
     }
 }
