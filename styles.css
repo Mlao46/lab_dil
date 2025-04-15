@@ -1,159 +1,119 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-header {
-    background-color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.logo-text {
-    font-family: 'Arial', sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    color: #000000;
-    margin: 0;
-}
-
-main {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 25px;
+.container {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes */
+    margin: 20px; /* Margen para centrar en pantallas grandes */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
 }
 
-input[type="number"], select {
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group input,
+.input-group select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-/* Contenedor para Volumen Final */
-.volume-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+.input-group input {
+    flex: 1; /* El input crece para llenar el espacio */
 }
 
-.volume-container input[type="number"] {
-    flex: 1; /* Ocupa el espacio restante */
-}
-
-.volume-container select {
+.input-group select {
+    flex: 0 0 auto; /* El select no crece */
     width: 80px; /* Ancho fijo para el select */
 }
 
-/* Contenedor para Ratio de Dilución */
-.ratio-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.ratio-container input[type="number"] {
-    flex: 1; /* Cada input ocupa el espacio disponible */
-}
-
-.ratio-container span {
+.input-group span {
     font-size: 18px;
     color: #333;
-    flex: 0 0 auto; /* Evita que el ":" se estire */
 }
 
 button {
     width: 100%;
-    padding: 12px;
-    background-color: #008000;
+    padding: 10px;
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #006600;
+    background-color: #45a049;
 }
 
-#results {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-.hidden {
-    display: none;
-}
-
-#results h2 {
-    color: #008000;
-    font-size: 20px;
-    margin-top: 0;
-}
-
-#results p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #333;
-}
-
+/* Pantallas pequeñas (ej. iPhone 12, <= 600px) */
 @media (max-width: 600px) {
-    main {
-        margin: 15px;
-        padding: 20px;
+    .container {
+        margin: 10px; /* Menos margen */
+        padding: 15px; /* Menos padding */
     }
 
-    .logo-text {
-        font-size: 24px;
+    .input-group {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: stretch;
     }
 
-    .volume-container {
-        flex-direction: row; /* Mantiene input y select en horizontal */
-        gap: 8px;
+    .input-group input,
+    .input-group select {
+        width: 100%; /* Ocupan todo el ancho */
     }
 
-    .volume-container input[type="number"] {
-        flex: 1;
+    .input-group select {
+        margin-top: 10px; /* Espacio entre input y select */
     }
+}
 
-    .volume-container select {
-        width: 70px; /* Ligeramente más pequeño para móviles */
+/* Pantallas medianas (ej. tablets, 601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        max-width: 80%; /* Ajusta el ancho para tablets */
     }
+}
 
-    .ratio-container {
-        flex-direction: row; /* Mantiene inputs en horizontal */
-        gap: 8px;
-    }
-
-    .ratio-container input[type="number"] {
-        flex: 1;
+/* Pantallas grandes (ej. 13 pulgadas o más, >= 1025px) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 600px; /* Ancho máximo fijo */
     }
 }
