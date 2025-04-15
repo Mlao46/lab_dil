@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Diluciones - Euroimmun</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1 class="logo-text">EUROIMMUN</h1>
+    </header>
+    <main>
+        <form id="dilutionForm">
+            <div class="form-group">
+                <label for="finalVolume">Volumen Final:</label>
+                <input type="number" id="finalVolume" step="any" required>
+                <select id="unit">
+                    <option value="µl">µl</option>
+                    <option value="ml">ml</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ratio">Ratio de Dilución (a:b):</label>
+                <input type="number" id="ratioA" value="1" min="1" required>
+                <span>:</span>
+                <input type="number" id="ratioB" placeholder="100" min="1" required>
+            </div>
+            <button type="button" onclick="calculateDilution()">Calcular</button>
+        </form>
+        <div id="results" class="hidden">
+            <h2>Resultados</h2>
+            <p id="reagentVolume"></p>
+            <p id="diluentVolume"></p>
+        </div>
+    </main>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('Service Worker registrado'))
+            .catch(error => console.error('Error al registrar Service Worker:', error));
+        }
+    </script>
+</body>
+</html>
