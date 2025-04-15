@@ -21,7 +21,7 @@ header {
     font-family: 'Arial', sans-serif;
     font-size: 36px;
     font-weight: bold;
-    color: #008000;
+    color: #000000;
     margin: 0;
 }
 
@@ -62,9 +62,20 @@ select {
     margin-left: 10px;
 }
 
-.form-group span {
-    margin: 0 10px;
+.ratio-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ratio-container input[type="number"] {
+    width: 80px;
+    max-width: none;
+}
+
+.ratio-container span {
     font-size: 18px;
+    color: #333;
 }
 
 button {
@@ -104,4 +115,27 @@ button:hover {
     margin: 10px 0;
     font-size: 16px;
     color: #333;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+
+    input[type="number"], select {
+        max-width: 100%;
+    }
+
+    .ratio-container {
+        flex-direction: row;
+    }
+
+    .ratio-container input[type="number"] {
+        width: 70px;
+    }
 }
