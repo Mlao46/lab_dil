@@ -15,11 +15,13 @@
         <form id="dilutionForm">
             <div class="form-group">
                 <label for="finalVolume">Volumen Final:</label>
-                <input type="number" id="finalVolume" step="any" required>
-                <select id="unit">
-                    <option value="µl">µl</option>
-                    <option value="ml">ml</option>
-                </select>
+                <div class="volume-container">
+                    <input type="number" id="finalVolume" step="any" required>
+                    <select id="unit">
+                        <option value="µl">µl</option>
+                        <option value="ml">ml</option>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
                 <label for="ratio">Ratio de Dilución:</label>
