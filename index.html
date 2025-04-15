@@ -22,10 +22,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="ratio">Ratio de Dilución (a:b):</label>
-                <input type="number" id="ratioA" value="1" min="1" required>
-                <span>:</span>
-                <input type="number" id="ratioB" placeholder="100" min="1" required>
+                <label for="ratio">Ratio de Dilución:</label>
+                <div class="ratio-container">
+                    <input type="number" id="ratioA" value="1" min="1" required>
+                    <span>:</span>
+                    <input type="number" id="ratioB" placeholder="100" min="1" required>
+                </div>
             </div>
             <button type="button" onclick="calculateDilution()">Calcular</button>
         </form>
@@ -37,11 +39,11 @@
     </main>
     <script src="app.js"></script>
     <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('Service Worker registrado'))
-            .catch(error => console.error('Error al registrar Service Worker:', error));
-        }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log('Service Worker registrado'))
+          .catch(error => console.error('Error al registrar Service Worker:', error));
+      }
     </script>
 </body>
 </html>
