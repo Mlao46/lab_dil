@@ -1,123 +1,107 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-.container {
-    background-color: white;
+header {
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+.logo-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #008000;
+    margin: 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-.input-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+input[type="number"], select {
     width: 100%;
-}
-
-.input-group input,
-.input-group select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-.input-group input {
-    flex: 1; /* El input crece para llenar el espacio */
+input[type="number"] {
+    max-width: 200px;
 }
 
-.input-group select {
-    flex: 0 0 auto; /* El select no crece */
-    width: 80px; /* Ancho fijo para el select */
+select {
+    max-width: 100px;
+    margin-left: 10px;
 }
 
-.input-group span {
+.form-group span {
+    margin: 0 10px;
     font-size: 18px;
-    color: #333;
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
+    padding: 12px;
+    background-color: #008000;
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #006600;
 }
 
-/* Ajustes para pantallas pequeñas (≤ 600px) */
-@media (max-width: 600px) {
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    .input-group {
-        gap: 5px; /* Reducir el espacio entre elementos */
-    }
-
-    .input-group input,
-    .input-group select {
-        padding: 8px; /* Reducir padding */
-        font-size: 14px; /* Reducir tamaño de fuente */
-    }
-
-    .input-group select {
-        width: 60px; /* Reducir ancho del select */
-    }
-
-    .input-group input {
-        min-width: 0; /* Permitir que los inputs se encojan */
-    }
+#results {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
 
-/* Pantallas medianas (601px - 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .container {
-        max-width: 80%;
-    }
+.hidden {
+    display: none;
 }
 
-/* Pantallas grandes (≥ 1025px) */
-@media (min-width: 1025px) {
-    .container {
-        max-width: 600px;
-    }
+#results h2 {
+    color: #008000;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+#results p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
 }
