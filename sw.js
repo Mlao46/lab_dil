@@ -1,6 +1,6 @@
 // Define un nombre para la caché actual. Cambiar este nombre (p.ej., a v2)
 // cuando actualices los archivos cacheados activará el ciclo de actualización.
-const CACHE_NAME = 'dilution-calculator-v1';
+const CACHE_NAME = 'dilution-calculator-v2';
 
 // Lista de URLs (archivos) que forman el "App Shell" - lo mínimo
 // necesario para que tu aplicación funcione offline.
