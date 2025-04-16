@@ -1,37 +1,43 @@
+/* Reset básico y Box Sizing */
 * {
     box-sizing: border-box;
+    margin: 0; /* Quitamos márgenes por defecto */
+    padding: 0; /* Quitamos paddings por defecto */
+}
+
+html {
+    font-size: 16px; /* Base font size */
 }
 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
+    color: #333; /* Color de texto por defecto */
 }
 
 header {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px 20px; /* Padding ajustado */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
 }
 
 .logo-text {
-    font-family: 'Arial', sans-serif;
-    font-size: 36px;
+    font-family: 'Arial', sans-serif; /* Asegurar consistencia */
+    font-size: 2rem; /* Tamaño relativo (32px) */
     font-weight: bold;
-    color: #008000;
-    margin: 0;
+    color: #008000; /* Verde Euroimmun */
+    margin: 0; /* Ya estaba en el reset, pero por claridad */
 }
 
 main {
     max-width: 600px;
-    margin: 30px auto;
-    padding: 25px;
+    margin: 20px auto; /* Margen reducido */
+    padding: 20px; /* Padding reducido */
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Bordes ligeramente menos redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ajustada */
 }
 
 .form-group {
@@ -45,48 +51,77 @@ label {
     color: #333;
 }
 
-input[type="number"], select {
-    width: 100%;
+/* Contenedor Flex para grupos de input */
+.input-group {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    gap: 10px; /* Espacio entre elementos del grupo */
+}
+
+/* Estilos generales para inputs y selects dentro de los grupos */
+.input-group input[type="number"],
+.input-group select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
+    flex-grow: 1; /* Permitir que crezcan para llenar espacio */
+    /* Quitamos width: 100% aquí para que flex controle el tamaño */
 }
 
-input[type="number"] {
-    max-width: 200px;
+/* Ajustes específicos */
+/* Input de volumen puede crecer más */
+.input-group #finalVolume {
+     flex: 1; /* Equivalente a flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+     min-width: 100px; /* Evitar que se encoja demasiado */
 }
 
-select {
-    max-width: 100px;
-    margin-left: 10px;
+/* Select de unidad tiene tamaño fijo */
+.input-group #unit {
+    flex-grow: 0; /* No crece */
+    flex-shrink: 0; /* No encoge */
+    flex-basis: 80px; /* Ancho base */
+    /* Quitamos max-width y margin-left anteriores */
 }
 
-.form-group span {
-    margin: 0 10px;
-    font-size: 18px;
+/* Grupo del ratio */
+.ratio-group input[type="number"] {
+    flex: 1; /* Ocupan el espacio disponible equitativamente */
+    min-width: 60px; /* Ancho mínimo para cada input del ratio */
+    text-align: center;
+}
+
+.ratio-group span {
+    font-size: 1.1rem; /* 17.6px */
+    font-weight: bold;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #008000;
+    background-color: #008000; /* Verde Euroimmun */
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
+    font-weight: bold; /* Hacer texto del botón más prominente */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espacio sobre el botón */
 }
 
 button:hover {
-    background-color: #006600;
+    background-color: #006600; /* Verde más oscuro al pasar el ratón */
 }
 
+/* --- Estilos para Resultados y Errores --- */
 #results {
     margin-top: 25px;
     padding: 15px;
-    background-color: #f9f9f9;
+    background-color: #e9f5e9; /* Fondo verde muy claro */
+    border: 1px solid #d4eed4; /* Borde verde claro */
     border-radius: 5px;
 }
 
@@ -95,13 +130,90 @@ button:hover {
 }
 
 #results h2 {
-    color: #008000;
-    font-size: 20px;
+    color: #006600; /* Verde oscuro */
+    font-size: 1.25rem; /* 20px */
     margin-top: 0;
+    margin-bottom: 10px; /* Espacio bajo el título de resultados */
 }
 
 #results p {
-    margin: 10px 0;
-    font-size: 16px;
+    margin: 8px 0; /* Espacio ajustado */
+    font-size: 1rem; /* 16px */
     color: #333;
+}
+
+/* Estilos para el mensaje de error */
+.error {
+    color: #D8000C; /* Rojo oscuro para errores */
+    background-color: #FFD2D2; /* Fondo rojo claro */
+    border: 1px solid #D8000C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px; /* Espacio antes del botón */
+    font-size: 0.9rem; /* Ligeramente más pequeño */
+    font-weight: bold;
+}
+
+/* --- Media Query para pantallas pequeñas (ej. móviles < 600px) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 0 10px; /* Añade un pequeño padding lateral al body */
+    }
+
+    main {
+        margin: 15px auto; /* Menos margen vertical */
+        padding: 15px; /* Menos padding interno */
+    }
+
+    .logo-text {
+        font-size: 1.8rem; /* Reducir tamaño del logo (aprox 29px) */
+    }
+
+    /* Ajustar Flexbox para posible apilamiento si es necesario */
+    /* En este caso, con gap y flex-wrap (implícito), debería ajustarse bien. */
+    /* Si los inputs del ratio quedan muy pequeños, se podrían apilar: */
+    /*
+    .ratio-group {
+        flex-direction: column;
+        align-items: stretch; // Para que ocupen todo el ancho
+    }
+    .ratio-group span {
+        text-align: center; // Centrar el ':' si se apila
+        margin: 5px 0;
+    }
+    */
+
+    button {
+        padding: 14px; /* Hacer botón un poco más grande al tacto */
+    }
+
+    #results h2 {
+        font-size: 1.1rem; /* 17.6px */
+    }
+
+    #results p, label, input, select {
+         font-size: 0.95rem; /* Reducir ligeramente fuentes si es necesario */
+    }
+}
+
+/* (Opcional) Media query para pantallas muy pequeñas (< 400px) */
+@media (max-width: 400px) {
+    .logo-text {
+        font-size: 1.6rem; /* Aprox 25.6px */
+    }
+
+     /* Apilar seguro los inputs del ratio en pantallas muy estrechas */
+     .input-group.ratio-group {
+         flex-direction: column;
+         align-items: stretch; /* Inputs ocupan todo el ancho */
+         gap: 5px; /* Reducir espacio */
+     }
+     .ratio-group span {
+         margin: 5px 0; /* Espacio alrededor del ':' */
+         text-align: center;
+     }
+     .ratio-group input[type="number"] {
+         min-width: none; /* Quitar ancho mínimo si se apilan */
+         width: 100%; /* Ocupar todo el ancho */
+     }
 }
