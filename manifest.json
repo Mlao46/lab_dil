@@ -1,20 +1,46 @@
 {
-    "name": "Calculadora de Diluciones",
-    "short_name": "Diluciones",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#008000",
-    "icons": [
-      {
-        "src": "icon-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "icon-512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
+  // Nombre completo de la aplicación (se usa en el banner de instalación, etc.)
+  "name": "Calculadora de Diluciones",
+
+  // Nombre corto (se usa bajo el icono en la pantalla de inicio)
+  "short_name": "Diluciones",
+
+  // La URL que se carga cuando se inicia la aplicación desde el icono
+  // Debe coincidir con la página principal cacheada en sw.js
+  "start_url": "/index.html",
+
+  // Cómo se muestra la aplicación:
+  // "standalone": Como una app nativa, sin la UI del navegador.
+  // Otras opciones: "fullscreen", "minimal-ui", "browser".
+  "display": "standalone",
+
+  // Color de fondo que se muestra antes de que cargue el CSS.
+  // Útil para la pantalla de bienvenida (splash screen).
+  "background_color": "#ffffff", // Blanco
+
+  // Color del tema, afecta a la barra de herramientas o de estado del navegador/OS.
+  "theme_color": "#008000", // Verde (buena elección si coincide con tu marca)
+
+  // Lista de iconos para diferentes tamaños y contextos.
+  "icons": [
+    {
+      "src": "icon-192.png", // Ruta al archivo del icono (relativa al manifest.json)
+      "sizes": "192x192",    // Tamaño del icono
+      "type": "image/png"   // Tipo MIME de la imagen
+      // "purpose": "any" (por defecto)
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+      // "purpose": "any" (por defecto)
+    }
+    // Podrías añadir un icono "maskable" aquí para mejor integración en Android
+    // {
+    //   "src": "icon-maskable-512.png",
+    //   "sizes": "512x512",
+    //   "type": "image/png",
+    //   "purpose": "maskable" // Indica que el icono está diseñado para máscaras
+    // }
+  ]
+}
