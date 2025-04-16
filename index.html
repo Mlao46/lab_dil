@@ -6,40 +6,55 @@
     <title>Calculadora de Diluciones - Euroimmun</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icon-192.png">
 </head>
 <body>
     <header>
         <h1 class="logo-text">EUROIMMUN</h1>
     </header>
+
     <main>
-        <form id="dilutionForm">
+        <form id="dilutionForm" novalidate>
+
             <div class="form-group">
-                <label for="finalVolume">Volumen Final:</label>
-                <input type="number" id="finalVolume" step="any" required>
-                <select id="unit">
-                    <option value="µl">µl</option>
-                    <option value="ml">ml</option>
-                </select>
+                <label for="finalVolume">Volumen Final</label>
+                <div class="input-group">
+                    <input type="number" id="finalVolume" step="any" required placeholder="Ej: 1000">
+                    <select id="unit">
+                        <option value="µl">µl</option>
+                        <option value="ml">ml</option>
+                    </select>
+                </div>
             </div>
+
             <div class="form-group">
-                <label for="ratio">Ratio de Dilución:</label>
-                <input type="number" id="ratioA" value="1" min="1" required>
-                <span>:</span>
-                <input type="number" id="ratioB" placeholder="100" min="1" required>
+                <label for="ratioA">Ratio de Dilución</label>
+                 <div class="input-group ratio-group">
+                    <input type="number" id="ratioA" value="1" min="1" required>
+                    <span>:</span>
+                    <input type="number" id="ratioB" placeholder="100" min="1" required>
+                 </div>
             </div>
-            <button type="button" onclick="calculateDilution()">Calcular</button>
+
+            <div id="errorMessages" class="error hidden"></div>
+
+            <button type="button" id="calculateButton">Calcular</button>
+
         </form>
+
         <div id="results" class="hidden">
             <h2>Resultados</h2>
             <p id="reagentVolume"></p>
             <p id="diluentVolume"></p>
         </div>
     </main>
+
     <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('Service Worker registrado'))
+            .then(() => console.log('Service Worker registrado con éxito'))
             .catch(error => console.error('Error al registrar Service Worker:', error));
         }
     </script>
